@@ -205,3 +205,5 @@ class TestProductModel(unittest.TestCase):
         self.assertEqual(products[0].description, "testing")
         product.id = None
         self.assertRaises(DataValidationError, product.update)
+
+
