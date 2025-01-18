@@ -229,7 +229,6 @@ class TestProductRoutes(TestCase):
         self.assertEqual(updated_product["description"], "unknown")
         response = self.client.put(f"{BASE_URL}/999", json=new_product)
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-        
 
     def test_get_product_list(self):
         """It should Get a list of Products"""
@@ -275,7 +274,7 @@ class TestProductRoutes(TestCase):
         """It should Query Products by availability"""
         products = self._create_products(10)
         available_products = [product for product in products if product.available is True]
-        available_count = len(available_products)        
+        available_count = len(available_products)
         # test for available
         response = self.client.get(
             BASE_URL, query_string="available=true"
